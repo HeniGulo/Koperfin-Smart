@@ -10,9 +10,9 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
         :root {
-            --primary: #8B1A1A;
-            --primary-light: #A62828;
-            --primary-dark: #6B1414;
+            --primary: #dc2626;
+            --primary-light: #ef4444;
+            --primary-dark: #b91c1c;
             --secondary: #1e40af;
             --accent: #f59e0b;
             --success: #10b981;
@@ -56,7 +56,7 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 50%, rgba(139, 26, 26, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 20% 50%, rgba(220, 38, 38, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(30, 64, 175, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 40% 20%, rgba(245, 158, 11, 0.08) 0%, transparent 50%);
             pointer-events: none;
@@ -123,29 +123,7 @@
         .text-error { color: var(--error); }
         .text-warning { color: var(--warning); }
 
-        .logo-container {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .logo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0 10px 30px rgba(139, 26, 26, 0.4));
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); filter: drop-shadow(0 10px 30px rgba(139, 26, 26, 0.4)); }
-            50% { transform: scale(1.05); filter: drop-shadow(0 15px 40px rgba(139, 26, 26, 0.6)); }
-        }
-
+        /* AUTH PAGE */
         #auth-page {
             min-height: 100vh;
             display: flex;
@@ -189,6 +167,43 @@
         @keyframes slideUp {
             from { opacity: 0; transform: translateY(40px) scale(0.95); }
             to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .auth-logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .auth-logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: white;
+            opacity: 0.1;
+        }
+
+        .auth-logo i {
+            font-size: 3rem;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 15px 40px rgba(220, 38, 38, 0.6); }
         }
 
         .auth-title {
@@ -235,7 +250,7 @@
         .tab-btn.active {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            box-shadow: 0 4px 15px rgba(139, 26, 26, 0.4);
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
             transform: translateY(-2px);
         }
 
@@ -265,7 +280,7 @@
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             border-color: var(--primary-light);
             outline: none;
-            box-shadow: 0 0 0 4px rgba(139, 26, 26, 0.2);
+            box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.2);
             background: rgba(15, 23, 42, 0.7);
         }
 
@@ -311,12 +326,12 @@
         .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
-            box-shadow: 0 4px 15px rgba(139, 26, 26, 0.4);
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(139, 26, 26, 0.5);
+            box-shadow: 0 8px 25px rgba(220, 38, 38, 0.5);
         }
 
         .btn-primary:disabled {
@@ -340,8 +355,8 @@
         }
 
         .btn-icon {
-            background: rgba(139, 26, 26, 0.1);
-            border: 1px solid rgba(139, 26, 26, 0.2);
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.2);
             color: var(--primary-light);
             font-size: 1.25rem;
             padding: 0.625rem;
@@ -353,15 +368,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            border: none;
         }
 
         .btn-icon:hover {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
             transform: translateY(-2px) rotate(5deg);
-            box-shadow: 0 4px 15px rgba(139, 26, 26, 0.4);
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
         }
 
+        /* DASHBOARD */
         #main-dashboard {
             display: grid;
             grid-template-columns: 280px 1fr;
@@ -370,6 +387,7 @@
             z-index: 1;
         }
 
+        /* Sidebar */
         .sidebar {
             background: var(--bg-card);
             backdrop-filter: blur(20px);
@@ -397,14 +415,29 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.3);
             position: relative;
+            overflow: hidden;
         }
 
-        .app-logo img {
-            width: 100%;
+        .app-logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
             height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0 4px 15px rgba(139, 26, 26, 0.3));
+            background: white;
+            opacity: 0.1;
+        }
+
+        .app-logo i {
+            font-size: 1.5rem;
+            color: white;
+            position: relative;
+            z-index: 1;
         }
 
         .logo-text h3 {
@@ -462,7 +495,7 @@
         }
 
         .nav-item:hover {
-            background: rgba(139, 26, 26, 0.1);
+            background: rgba(220, 38, 38, 0.1);
             color: var(--primary-light);
             transform: translateX(4px);
         }
@@ -472,7 +505,7 @@
         }
 
         .nav-item.active {
-            background: linear-gradient(135deg, rgba(139, 26, 26, 0.2), rgba(30, 64, 175, 0.1));
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.2), rgba(30, 64, 175, 0.1));
             color: var(--primary-light);
             font-weight: 600;
         }
@@ -487,6 +520,7 @@
             margin-top: 1rem;
         }
 
+        /* Content Area */
         .content-area {
             overflow-y: auto;
             height: 100vh;
@@ -524,6 +558,7 @@
             gap: 0.75rem;
         }
 
+        /* Page Content */
         .page-content {
             padding: 2.5rem;
             animation: fadeIn 0.6s ease-out;
@@ -575,9 +610,10 @@
         .card:hover {
             box-shadow: var(--shadow-lg);
             transform: translateY(-4px);
-            border-color: rgba(139, 26, 26, 0.3);
+            border-color: rgba(220, 38, 38, 0.3);
         }
 
+        /* Dashboard Grid */
         #dashboard-content {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -685,6 +721,7 @@
             font-weight: 700;
         }
 
+        /* Charts */
         .chart-section {
             grid-column: 1 / -1;
             display: grid;
@@ -692,6 +729,7 @@
             gap: 1.5rem;
         }
 
+        /* Modal */
         .modal {
             position: fixed;
             top: 0;
@@ -771,6 +809,7 @@
             border-top: 1px solid var(--border);
         }
 
+        /* Credit Score Display */
         .credit-score-card {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             padding: 2rem;
@@ -790,6 +829,7 @@
             opacity: 0.9;
         }
 
+        /* Loan Progress */
         .loan-progress {
             position: relative;
             height: 8px;
@@ -819,6 +859,7 @@
             animation: shimmer 2s infinite;
         }
 
+        /* Scrollbar */
         ::-webkit-scrollbar {
             width: 10px;
             height: 10px;
@@ -880,7 +921,7 @@
         }
 
         .transaction-item:hover {
-            background: rgba(139, 26, 26, 0.05);
+            background: rgba(220, 38, 38, 0.05);
             border-radius: 10px;
             border-bottom-color: transparent;
         }
@@ -938,8 +979,8 @@
         }
 
         @keyframes glow {
-            0%, 100% { box-shadow: 0 0 10px rgba(139, 26, 26, 0.5); }
-            50% { box-shadow: 0 0 20px rgba(139, 26, 26, 0.8); }
+            0%, 100% { box-shadow: 0 0 10px rgba(220, 38, 38, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(220, 38, 38, 0.8); }
         }
 
         .form-row {
@@ -949,8 +990,8 @@
         }
 
         .info-box {
-            background: rgba(139, 26, 26, 0.1);
-            border: 1px solid rgba(139, 26, 26, 0.2);
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.2);
             border-radius: 12px;
             padding: 1rem;
             margin-bottom: 1.5rem;
@@ -1007,25 +1048,6 @@
             display: block;
         }
 
-        .financial-plan-card {
-            background: linear-gradient(135deg, rgba(139, 26, 26, 0.1), rgba(30, 64, 175, 0.1));
-            border: 1px solid rgba(139, 26, 26, 0.3);
-            padding: 1.5rem;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-        }
-
-        .plan-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .plan-progress {
-            margin-top: 1rem;
-        }
-
         @media (max-width: 1024px) {
             #main-dashboard {
                 grid-template-columns: 1fr;
@@ -1079,10 +1101,11 @@
     </div>
 
     <div id="app-container">
+        <!-- AUTH PAGE -->
         <div class="page" id="auth-page">
             <div class="auth-card">
-                <div class="logo-container">
-                    <img src="logo-koperfin.png" alt="KOPERFIN SMART Logo" width="100%">
+                <div class="auth-logo">
+                    <i class="fas fa-landmark"></i>
                 </div>
                 <h2 class="auth-title">KOPERFIN SMART</h2>
                 <p class="auth-subtitle">
@@ -1151,11 +1174,12 @@
             </div>
         </div>
 
+        <!-- MAIN DASHBOARD -->
         <div class="page hidden" id="main-dashboard">
             <aside class="sidebar">
                 <div class="logo-area">
                     <div class="app-logo">
-                        <img src="logo-koperfin.png" alt="Logo">
+                        <i class="fas fa-landmark"></i>
                     </div>
                     <div class="logo-text">
                         <h3>KOPERFIN SMART</h3>
@@ -1177,9 +1201,6 @@
                     </button>
                     <button class="nav-item" data-page="credit-score">
                         <i class="fas fa-chart-line"></i> Credit Score
-                    </button>
-                    <button class="nav-item" data-page="financial-plan">
-                        <i class="fas fa-calendar-check"></i> Rencana Keuangan
                     </button>
                     <button class="nav-item" data-page="reports">
                         <i class="fas fa-file-alt"></i> Laporan
@@ -1210,6 +1231,7 @@
                     </div>
                 </header>
                 
+                <!-- DASHBOARD CONTENT -->
                 <div class="page-content" id="dashboard-content">
                     <div class="card balance-summary">
                         <div class="balance-info">
@@ -1280,6 +1302,7 @@
                     </div>
                 </div>
 
+                <!-- LOANS CONTENT -->
                 <div class="page-content hidden" id="loans-content">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
                         <h2 class="page-title" style="margin-bottom: 0;">
@@ -1292,6 +1315,7 @@
                     <div id="loans-list"></div>
                 </div>
 
+                <!-- SAVINGS CONTENT -->
                 <div class="page-content hidden" id="savings-content">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
                         <h2 class="page-title" style="margin-bottom: 0;">
@@ -1304,6 +1328,7 @@
                     <div id="savings-list"></div>
                 </div>
 
+                <!-- TRANSACTIONS CONTENT -->
                 <div class="page-content hidden" id="transactions-content">
                     <h2 class="page-title">
                         <i class="fas fa-exchange-alt"></i> Riwayat Transaksi
@@ -1313,6 +1338,7 @@
                     </div>
                 </div>
 
+                <!-- CREDIT SCORE CONTENT -->
                 <div class="page-content hidden" id="credit-score-content">
                     <h2 class="page-title">
                         <i class="fas fa-chart-line"></i> Analisis Credit Score
@@ -1351,25 +1377,14 @@
                     </div>
                 </div>
 
-                <div class="page-content hidden" id="financial-plan-content">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-                        <h2 class="page-title" style="margin-bottom: 0;">
-                            <i class="fas fa-calendar-check"></i> Rencana Keuangan
-                        </h2>
-                        <button class="btn btn-primary" onclick="openModal('plan-modal')">
-                            <i class="fas fa-plus"></i> Buat Rencana
-                        </button>
-                    </div>
-                    <div id="financial-plans-list"></div>
-                </div>
-
+                <!-- REPORTS CONTENT -->
                 <div class="page-content hidden" id="reports-content">
                     <h2 class="page-title">
                         <i class="fas fa-file-alt"></i> Laporan Keuangan
                     </h2>
                     <div class="card">
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
-                            <div style="text-align: center; padding: 1.5rem; background: rgba(139, 26, 26, 0.1); border-radius: 12px;">
+                            <div style="text-align: center; padding: 1.5rem; background: rgba(220, 38, 38, 0.1); border-radius: 12px;">
                                 <i class="fas fa-calendar-day" style="font-size: 2rem; color: var(--primary-light); margin-bottom: 0.5rem;"></i>
                                 <h4 style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem;">Hari Ini</h4>
                                 <p style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary);" id="today-transactions">0</p>
@@ -1389,6 +1404,7 @@
                     </div>
                 </div>
 
+                <!-- SETTINGS CONTENT -->
                 <div class="page-content hidden" id="settings-content">
                     <h2 class="page-title">
                         <i class="fas fa-cog"></i> Pengaturan
@@ -1428,6 +1444,7 @@
             </main>
         </div>
 
+        <!-- MODAL LOAN APPLICATION -->
         <div class="modal" id="loan-modal">
             <div class="modal-content">
                 <div class="modal-header">
@@ -1463,7 +1480,7 @@
                         </div>
                         <div class="form-group">
                             <label>Bunga per Tahun (%)</label>
-                            <input type="number" id="loan-interest" value="6" readonly style="background: rgba(139, 26, 26, 0.1);">
+                            <input type="number" id="loan-interest" value="6" readonly style="background: rgba(220, 38, 38, 0.1);">
                         </div>
                         <div class="form-group">
                             <label>Tujuan Pinjaman</label>
@@ -1473,7 +1490,7 @@
                             <label>Jaminan (Opsional)</label>
                             <input type="text" id="loan-collateral" placeholder="Contoh: Sertifikat Tanah, BPKB">
                         </div>
-                        <div class="card" style="background: rgba(139, 26, 26, 0.1); padding: 1rem; margin-top: 1rem;">
+                        <div class="card" style="background: rgba(220, 38, 38, 0.1); padding: 1rem; margin-top: 1rem;">
                             <h5 style="color: var(--text-primary); margin-bottom: 0.5rem;">Estimasi Cicilan/Bulan</h5>
                             <p style="font-size: 1.5rem; font-weight: 700; color: var(--primary-light);" id="estimated-installment">Rp 0</p>
                         </div>
@@ -1488,6 +1505,7 @@
             </div>
         </div>
 
+        <!-- MODAL SAVINGS -->
         <div class="modal" id="savings-modal">
             <div class="modal-content">
                 <div class="modal-header">
@@ -1530,6 +1548,7 @@
             </div>
         </div>
 
+        <!-- MODAL PAYMENT -->
         <div class="modal" id="payment-modal">
             <div class="modal-content">
                 <div class="modal-header">
@@ -1572,93 +1591,29 @@
                 </div>
             </div>
         </div>
-
-        <div class="modal" id="plan-modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3><i class="fas fa-calendar-check"></i> Buat Rencana Keuangan</h3>
-                    <button class="btn-close" onclick="closeModal('plan-modal')">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="plan-form">
-                        <div class="form-group">
-                            <label>Nama Rencana</label>
-                            <input type="text" id="plan-name" placeholder="Contoh: Dana Pendidikan Anak" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Tujuan Rencana</label>
-                            <select id="plan-goal" required>
-                                <option value="">Pilih Tujuan</option>
-                                <option value="education">Pendidikan</option>
-                                <option value="house">Rumah</option>
-                                <option value="vehicle">Kendaraan</option>
-                                <option value="business">Modal Usaha</option>
-                                <option value="emergency">Dana Darurat</option>
-                                <option value="retirement">Pensiun</option>
-                                <option value="other">Lainnya</option>
-                            </select>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Target Dana (Rp)</label>
-                                <input type="number" id="plan-target" placeholder="0" required min="100000" step="100000">
-                            </div>
-                            <div class="form-group">
-                                <label>Target Waktu (Bulan)</label>
-                                <input type="number" id="plan-duration" placeholder="12" required min="1" max="360">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Setoran Awal (Rp)</label>
-                            <input type="number" id="plan-initial" placeholder="0" min="0" step="10000">
-                        </div>
-                        <div class="form-group">
-                            <label>Deskripsi</label>
-                            <textarea id="plan-description" placeholder="Jelaskan rencana keuangan Anda..."></textarea>
-                        </div>
-                        <div class="card" style="background: rgba(139, 26, 26, 0.1); padding: 1rem; margin-top: 1rem;">
-                            <h5 style="color: var(--text-primary); margin-bottom: 0.5rem;">Rekomendasi Setoran Bulanan</h5>
-                            <p style="font-size: 1.5rem; font-weight: 700; color: var(--primary-light);" id="recommended-monthly">Rp 0</p>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" onclick="closeModal('plan-modal')">Batal</button>
-                    <button class="btn btn-primary" id="submit-plan">
-                        <i class="fas fa-save"></i> Simpan Rencana
-                    </button>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <script type="module">
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
-        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
-        import { getFirestore, doc, setDoc, getDoc, updateDoc, collection, query, where, getDocs } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
-
-        const firebaseConfig = {
-            apiKey: "AIzaSyB_BYwCp17T7dId9matOQvCi5S9azQcfYo",
-            authDomain: "koperfin-smart.firebaseapp.com",
-            projectId: "koperfin-smart",
-            storageBucket: "koperfin-smart.firebasestorage.app",
-            messagingSenderId: "796588778877",
-            appId: "1:796588778877:web:bc53072057b34b6e93d814",
-            measurementId: "G-XFB79J95EP"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-
+    <script>
+        // Application State Management
         const KoperfinApp = {
             currentUser: null,
+            users: {},
             balanceVisible: true,
             charts: {
                 finance: null,
                 reports: null
+            },
+
+            // Utility Functions
+            simpleHash: (str) => {
+                if (!str) return '';
+                let hash = 0;
+                for (let i = 0; i < str.length; i++) {
+                    const char = str.charCodeAt(i);
+                    hash = ((hash << 5) - hash) + char;
+                    hash = hash & hash; // Convert to 32bit integer
+                }
+                return Math.abs(hash).toString();
             },
 
             formatCurrency: (amount) => {
@@ -1673,6 +1628,7 @@
                 return principal * monthlyRate * Math.pow(1 + monthlyRate, months) / (Math.pow(1 + monthlyRate, months) - 1);
             },
 
+            // AI-based Credit Scoring Algorithm
             calculateCreditScore: (user) => {
                 let baseScore = 300;
                 let score = baseScore;
@@ -1680,54 +1636,31 @@
                 const loans = user.loans || [];
                 const savings = user.savings || [];
                 const transactions = user.transactions || [];
-                const plans = user.financialPlans || [];
                 
+                // Factor 1: Payment History (35% weight)
                 const totalLoans = loans.length;
                 const paidLoans = loans.filter(l => l.status === 'paid').length;
                 const activeLoans = loans.filter(l => l.status === 'active');
                 
                 let paymentHistoryScore = 0;
                 if (totalLoans > 0) {
-                    const paidRatio = paidLoans / totalLoans;
-                    paymentHistoryScore += paidRatio * 175;
+                    paymentHistoryScore += (paidLoans / totalLoans) * 175;
                     
                     activeLoans.forEach(loan => {
-                        const startDate = new Date(loan.startDate);
-                        const now = new Date();
-                        const monthsPassed = Math.floor((now - startDate) / (30 * 24 * 60 * 60 * 1000));
-                        const expectedPayments = Math.max(1, monthsPassed);
+                        const expectedPayments = Math.floor((new Date() - new Date(loan.startDate)) / (30 * 24 * 60 * 60 * 1000));
                         const actualPayments = loan.payments ? loan.payments.length : 0;
                         
-                        if (actualPayments >= expectedPayments) {
-                            paymentHistoryScore += 25;
-                        } else if (actualPayments >= expectedPayments * 0.8) {
-                            paymentHistoryScore += 15;
-                        } else if (actualPayments >= expectedPayments * 0.5) {
-                            paymentHistoryScore += 5;
+                        if (actualPayments >= expectedPayments && expectedPayments > 0) {
+                            paymentHistoryScore += 20;
                         }
-                        
-                        const paymentEfficiency = loan.totalPaid / loan.totalPayment;
-                        if (paymentEfficiency > 0.8) paymentHistoryScore += 15;
-                        else if (paymentEfficiency > 0.5) paymentHistoryScore += 10;
-                        else if (paymentEfficiency > 0.3) paymentHistoryScore += 5;
                     });
-                    
-                    const onTimePayments = transactions.filter(t => 
-                        t.type === 'loan_payment' && 
-                        new Date(t.date) <= new Date(t.dueDate || t.date)
-                    ).length;
-                    const totalPayments = transactions.filter(t => t.type === 'loan_payment').length;
-                    
-                    if (totalPayments > 0) {
-                        const onTimeRatio = onTimePayments / totalPayments;
-                        paymentHistoryScore += onTimeRatio * 30;
-                    }
                 } else {
                     paymentHistoryScore = 87.5;
                 }
                 
-                score += Math.min(paymentHistoryScore, 262.5);
+                score += Math.min(paymentHistoryScore, 192.5);
                 
+                // Factor 2: Debt-to-Income Ratio (30% weight)
                 const totalDebt = activeLoans.reduce((sum, l) => sum + (l.totalPayment - l.totalPaid), 0);
                 const totalSavings = savings.reduce((sum, s) => sum + s.amount, 0);
                 
@@ -1735,149 +1668,104 @@
                 if (totalSavings > 0) {
                     const debtRatio = totalDebt / totalSavings;
                     
-                    if (debtRatio === 0) debtRatioScore = 165;
-                    else if (debtRatio <= 0.2) debtRatioScore = 155;
-                    else if (debtRatio <= 0.3) debtRatioScore = 145;
-                    else if (debtRatio <= 0.4) debtRatioScore = 130;
-                    else if (debtRatio <= 0.5) debtRatioScore = 110;
-                    else if (debtRatio <= 0.7) debtRatioScore = 85;
-                    else if (debtRatio <= 1.0) debtRatioScore = 60;
-                    else if (debtRatio <= 1.5) debtRatioScore = 35;
-                    else debtRatioScore = 15;
-                    
-                    if (totalDebt > 0 && totalSavings / totalDebt >= 1.5) {
-                        debtRatioScore += 20;
-                    }
+                    if (debtRatio <= 0.3) debtRatioScore = 165;
+                    else if (debtRatio <= 0.5) debtRatioScore = 140;
+                    else if (debtRatio <= 0.7) debtRatioScore = 110;
+                    else if (debtRatio <= 1.0) debtRatioScore = 80;
+                    else debtRatioScore = 40;
                 } else if (totalDebt === 0) {
                     debtRatioScore = 140;
                 } else {
                     debtRatioScore = 20;
                 }
                 
-                score += Math.min(debtRatioScore, 165);
+                score += debtRatioScore;
                 
+                // Factor 3: Savings History (20% weight)
                 let savingsScore = 0;
                 if (savings.length > 0) {
-                    savingsScore += Math.min(savings.length * 5, 50);
+                    savingsScore += Math.min(savings.length * 8, 60);
                     
                     const sixMonthsAgo = new Date();
                     sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
                     const recentSavings = savings.filter(s => new Date(s.date) >= sixMonthsAgo);
                     
-                    if (recentSavings.length >= 6) savingsScore += 35;
-                    else if (recentSavings.length >= 4) savingsScore += 25;
-                    else if (recentSavings.length >= 2) savingsScore += 15;
+                    if (recentSavings.length >= 3) savingsScore += 30;
                     
-                    if (totalSavings >= 50000000) savingsScore += 30;
-                    else if (totalSavings >= 20000000) savingsScore += 25;
-                    else if (totalSavings >= 10000000) savingsScore += 20;
+                    if (totalSavings >= 10000000) savingsScore += 20;
                     else if (totalSavings >= 5000000) savingsScore += 15;
                     else if (totalSavings >= 1000000) savingsScore += 10;
-                    
-                    const sortedSavings = [...savings].sort((a, b) => new Date(a.date) - new Date(b.date));
-                    let consecutiveMonths = 1;
-                    for (let i = 1; i < sortedSavings.length; i++) {
-                        const prevDate = new Date(sortedSavings[i - 1].date);
-                        const currDate = new Date(sortedSavings[i].date);
-                        const monthDiff = (currDate.getFullYear() - prevDate.getFullYear()) * 12 + 
-                                        (currDate.getMonth() - prevDate.getMonth());
-                        if (monthDiff <= 2) consecutiveMonths++;
-                    }
-                    if (consecutiveMonths >= 6) savingsScore += 15;
-                    else if (consecutiveMonths >= 3) savingsScore += 8;
                 }
                 
                 score += Math.min(savingsScore, 110);
                 
+                // Factor 4: Transaction Activity (15% weight)
                 let activityScore = 0;
                 if (transactions.length > 0) {
-                    activityScore += Math.min(transactions.length * 1.5, 40);
+                    activityScore += Math.min(transactions.length * 2, 50);
                     
                     const transactionTypes = new Set(transactions.map(t => t.type));
-                    activityScore += Math.min(transactionTypes.size * 6, 24);
+                    activityScore += transactionTypes.size * 8;
                     
                     const threeMonthsAgo = new Date();
                     threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3);
                     const recentTransactions = transactions.filter(t => new Date(t.date) >= threeMonthsAgo);
                     
-                    if (recentTransactions.length >= 10) activityScore += 20;
-                    else if (recentTransactions.length >= 5) activityScore += 12;
-                    else if (recentTransactions.length >= 2) activityScore += 6;
+                    if (recentTransactions.length >= 5) activityScore += 15;
                 }
                 
                 score += Math.min(activityScore, 82.5);
                 
-                if (plans.length > 0) {
-                    score += Math.min(plans.length * 8, 40);
-                    
-                    const activePlans = plans.filter(p => p.status === 'active');
-                    activePlans.forEach(plan => {
-                        const progress = plan.currentAmount / plan.targetAmount;
-                        if (progress >= 0.75) score += 15;
-                        else if (progress >= 0.5) score += 10;
-                        else if (progress >= 0.25) score += 5;
-                    });
-                }
-                
+                // Penalty for problematic loans
                 const problematicLoans = activeLoans.filter(loan => {
                     const monthsSinceStart = Math.floor((new Date() - new Date(loan.startDate)) / (30 * 24 * 60 * 60 * 1000));
-                    const expectedPayment = loan.monthlyInstallment * Math.max(1, monthsSinceStart);
-                    return loan.totalPaid < (expectedPayment * 0.6);
+                    const expectedPayment = loan.monthlyInstallment * monthsSinceStart;
+                    return loan.totalPaid < (expectedPayment * 0.7);
                 });
                 
-                score -= problematicLoans.length * 60;
-                
-                const overdueLoans = activeLoans.filter(loan => {
-                    const monthsSinceStart = Math.floor((new Date() - new Date(loan.startDate)) / (30 * 24 * 60 * 60 * 1000));
-                    return monthsSinceStart > loan.tenor;
-                });
-                score -= overdueLoans.length * 80;
-                
-                if (totalLoans > 5 && activeLoans.length > 3) {
-                    score -= 30;
-                }
+                score -= problematicLoans.length * 50;
                 
                 return Math.max(300, Math.min(850, Math.round(score)));
             },
 
             getCreditRating: (score) => {
-                if (score >= 800) {
+                if (score >= 750) {
                     return { 
                         rating: 'Sempurna', 
                         class: 'badge-success',
-                        description: 'Credit score Anda sempurna! Anda memiliki track record keuangan yang outstanding dengan manajemen hutang yang sangat baik dan pembayaran selalu tepat waktu.',
-                        range: '800-850'
-                    };
-                }
-                if (score >= 750) {
-                    return { 
-                        rating: 'Sangat Baik', 
-                        class: 'badge-success',
-                        description: 'Credit score Anda sangat baik! Anda menunjukkan pengelolaan keuangan yang sangat bertanggung jawab dengan riwayat pembayaran yang konsisten.',
-                        range: '750-799'
+                        description: 'Credit score Anda sangat baik! Anda memiliki riwayat keuangan yang sangat sehat dengan pembayaran tepat waktu dan pengelolaan hutang yang excellent.',
+                        range: '750-850'
                     };
                 }
                 if (score >= 650) {
                     return { 
-                        rating: 'Baik', 
-                        class: 'badge-info',
-                        description: 'Credit score Anda baik. Anda memiliki track record keuangan yang cukup stabil. Tingkatkan konsistensi pembayaran untuk score lebih baik.',
+                        rating: 'Sangat Baik', 
+                        class: 'badge-success',
+                        description: 'Credit score Anda sangat baik! Anda menunjukkan pengelolaan keuangan yang bertanggung jawab dengan riwayat pembayaran yang konsisten.',
                         range: '650-749'
                     };
                 }
                 if (score >= 550) {
                     return { 
+                        rating: 'Baik', 
+                        class: 'badge-info',
+                        description: 'Credit score Anda baik. Anda memiliki track record keuangan yang cukup stabil. Masih ada ruang untuk peningkatan.',
+                        range: '550-649'
+                    };
+                }
+                if (score >= 450) {
+                    return { 
                         rating: 'Cukup', 
                         class: 'badge-warning',
                         description: 'Credit score Anda cukup. Fokus pada pembayaran tepat waktu dan tingkatkan simpanan rutin untuk meningkatkan score.',
-                        range: '550-649'
+                        range: '450-549'
                     };
                 }
                 return { 
                     rating: 'Perlu Peningkatan', 
                     class: 'badge-error',
-                    description: 'Credit score Anda perlu peningkatan. Konsultasikan dengan petugas koperasi untuk rencana perbaikan kredit yang terstruktur.',
-                    range: '300-549'
+                    description: 'Credit score Anda perlu peningkatan. Konsultasikan dengan petugas koperasi untuk rencana perbaikan kredit.',
+                    range: '300-449'
                 };
             },
 
@@ -1900,19 +1788,7 @@
                 return types[type] || type;
             },
 
-            getPlanGoalName: (goal) => {
-                const goals = {
-                    education: 'Pendidikan',
-                    house: 'Rumah',
-                    vehicle: 'Kendaraan',
-                    business: 'Modal Usaha',
-                    emergency: 'Dana Darurat',
-                    retirement: 'Pensiun',
-                    other: 'Lainnya'
-                };
-                return goals[goal] || goal;
-            },
-
+            // Modal Functions
             openModal: (modalId) => {
                 const modal = document.getElementById(modalId);
                 if (modal) {
@@ -1929,6 +1805,7 @@
                 if (modal) modal.classList.remove('active');
             },
 
+            // Navigation
             showPage: (pageElement) => {
                 document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
                 pageElement.classList.remove('hidden');
@@ -1952,40 +1829,50 @@
                     }
                 });
 
+                // Update page content
                 switch(pageName) {
                     case 'dashboard': KoperfinApp.updateDashboard(); break;
                     case 'loans': KoperfinApp.renderLoans(); break;
                     case 'savings': KoperfinApp.renderSavings(); break;
                     case 'transactions': KoperfinApp.renderTransactions(); break;
                     case 'credit-score': KoperfinApp.updateCreditScore(); break;
-                    case 'financial-plan': KoperfinApp.renderFinancialPlans(); break;
                     case 'reports': KoperfinApp.updateReports(); break;
                     case 'settings': KoperfinApp.loadSettings(); break;
                 }
             },
 
-            handleLogin: async (e) => {
+            // Authentication
+            handleLogin: (e) => {
                 e.preventDefault();
                 const username = document.getElementById('login-username').value.trim();
                 const password = document.getElementById('login-password').value;
 
-                try {
-                    const email = username + '@koperfin.local';
-                    const userCredential = await signInWithEmailAndPassword(auth, email, password);
-                    
-                    const userDoc = await getDoc(doc(db, 'users', userCredential.user.uid));
-                    if (userDoc.exists()) {
-                        KoperfinApp.currentUser = { uid: userCredential.user.uid, ...userDoc.data() };
-                        KoperfinApp.initDashboard();
-                        KoperfinApp.showPage(document.getElementById('main-dashboard'));
-                    }
-                } catch (error) {
-                    console.error('Login error:', error);
-                    alert('Login gagal: ' + (error.message || 'Username atau password salah'));
+                console.log('🔐 Login attempt for username:', username);
+                
+                const user = KoperfinApp.users[username];
+                
+                if (!user) {
+                    console.error('❌ User not found:', username);
+                    alert('Login gagal: Nama pengguna tidak ditemukan.');
+                    return;
+                }
+                
+                const hashedPassword = KoperfinApp.simpleHash(password);
+                const passwordMatch = hashedPassword === user.password;
+                
+                console.log('🔑 Password validation:', passwordMatch ? '✅ Match' : '❌ No Match');
+                
+                if (passwordMatch) {
+                    console.log('✅ Login successful!');
+                    KoperfinApp.currentUser = user;
+                    KoperfinApp.initDashboard();
+                    KoperfinApp.showPage(document.getElementById('main-dashboard'));
+                } else {
+                    alert('Login gagal: Kata sandi salah.');
                 }
             },
 
-            handleRegister: async (e) => {
+            handleRegister: (e) => {
                 e.preventDefault();
                 const coopId = document.getElementById('register-coop-id').value.trim();
                 const coopName = document.getElementById('register-coop-name').value.trim();
@@ -2009,48 +1896,39 @@
                     return;
                 }
 
-                try {
-                    const authEmail = username + '@koperfin.local';
-                    const userCredential = await createUserWithEmailAndPassword(auth, authEmail, password);
-                    
-                    const userData = {
-                        username,
-                        email,
-                        coopId,
-                        coopName,
-                        loans: [],
-                        savings: [],
-                        transactions: [],
-                        financialPlans: [],
-                        settings: { fullName: username, phone: '' },
-                        createdAt: new Date().toISOString()
-                    };
-
-                    await setDoc(doc(db, 'users', userCredential.user.uid), userData);
-                    
-                    KoperfinApp.currentUser = { uid: userCredential.user.uid, ...userData };
-                    KoperfinApp.initDashboard();
-                    KoperfinApp.showPage(document.getElementById('main-dashboard'));
-                } catch (error) {
-                    console.error('Registration error:', error);
-                    alert('Registrasi gagal: ' + (error.message || 'Terjadi kesalahan'));
+                if (KoperfinApp.users[username]) {
+                    alert('Nama pengguna sudah terdaftar.');
+                    return;
                 }
+
+                KoperfinApp.users[username] = {
+                    username,
+                    email,
+                    password: KoperfinApp.simpleHash(password),
+                    coopId,
+                    coopName,
+                    loans: [],
+                    savings: [],
+                    transactions: [],
+                    settings: { fullName: username, phone: '' },
+                    createdAt: new Date().toISOString()
+                };
+
+                KoperfinApp.currentUser = KoperfinApp.users[username];
+                KoperfinApp.initDashboard();
+                KoperfinApp.showPage(document.getElementById('main-dashboard'));
             },
 
-            handleLogout: async () => {
+            handleLogout: () => {
                 if (confirm('Anda yakin ingin keluar?')) {
-                    try {
-                        await signOut(auth);
-                        KoperfinApp.currentUser = null;
-                        KoperfinApp.showPage(document.getElementById('auth-page'));
-                        if (KoperfinApp.charts.finance) KoperfinApp.charts.finance.destroy();
-                        if (KoperfinApp.charts.reports) KoperfinApp.charts.reports.destroy();
-                    } catch (error) {
-                        console.error('Logout error:', error);
-                    }
+                    KoperfinApp.currentUser = null;
+                    KoperfinApp.showPage(document.getElementById('auth-page'));
+                    if (KoperfinApp.charts.finance) KoperfinApp.charts.finance.destroy();
+                    if (KoperfinApp.charts.reports) KoperfinApp.charts.reports.destroy();
                 }
             },
 
+            // Dashboard Initialization
             initDashboard: () => {
                 const hour = new Date().getHours();
                 let greeting = 'Selamat Pagi';
@@ -2061,6 +1939,7 @@
                 document.getElementById('greeting-time').textContent = greeting;
                 document.getElementById('user-name').textContent = KoperfinApp.currentUser.username;
                 
+                // Wait a bit for Chart.js to be fully loaded
                 setTimeout(() => {
                     KoperfinApp.updateDashboard();
                 }, 100);
@@ -2070,31 +1949,37 @@
                 const user = KoperfinApp.currentUser;
                 if (!user) return;
 
-                const totalSavings = (user.savings || []).reduce((sum, s) => sum + s.amount, 0);
+                // Update balance
+                const totalSavings = user.savings.reduce((sum, s) => sum + s.amount, 0);
                 document.getElementById('total-balance').textContent = KoperfinApp.balanceVisible ? 
-                    KoperfinApp.formatCurrency(totalSavings) : 'Rp •••••••';
+                    KoperfinApp.formatCurrency(totalSavings) : 'Rp ••••••';
 
-                const totalLoanAmount = (user.loans || []).reduce((sum, l) => sum + l.principal, 0);
-                const paidLoans = (user.loans || []).filter(l => l.status === 'paid').length;
-                const activeLoans = (user.loans || []).filter(l => l.status === 'active').length;
+                // Update loan stats
+                const totalLoanAmount = user.loans.reduce((sum, l) => sum + l.principal, 0);
+                const paidLoans = user.loans.filter(l => l.status === 'paid').length;
+                const activeLoans = user.loans.filter(l => l.status === 'active').length;
 
                 document.getElementById('total-loans').textContent = KoperfinApp.formatCurrency(totalLoanAmount);
                 document.getElementById('paid-loans').textContent = paidLoans;
                 document.getElementById('active-loans').textContent = activeLoans;
 
+                // Update credit score
                 const score = KoperfinApp.calculateCreditScore(user);
                 const rating = KoperfinApp.getCreditRating(score);
                 document.getElementById('credit-score').textContent = score;
                 document.getElementById('credit-rating-badge').textContent = rating.rating;
                 document.getElementById('credit-rating-badge').className = `badge ${rating.class}`;
 
+                // Update recent activities
                 KoperfinApp.renderRecentActivities();
+
+                // Update chart
                 KoperfinApp.updateFinanceChart();
             },
 
             renderRecentActivities: () => {
                 const container = document.getElementById('recent-activities');
-                const transactions = [...(KoperfinApp.currentUser.transactions || [])]
+                const transactions = [...KoperfinApp.currentUser.transactions]
                     .sort((a, b) => new Date(b.date) - new Date(a.date))
                     .slice(0, 5);
 
@@ -2128,18 +2013,24 @@
 
             updateFinanceChart: () => {
                 const ctx = document.getElementById('finance-chart');
-                if (!ctx || typeof Chart === 'undefined') return;
+                if (!ctx) return;
+                
+                // Check if Chart is available
+                if (typeof Chart === 'undefined') {
+                    console.warn('Chart.js not loaded yet');
+                    return;
+                }
 
                 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
                 const savingsData = new Array(12).fill(0);
                 const loansData = new Array(12).fill(0);
 
-                (KoperfinApp.currentUser.savings || []).forEach(s => {
+                KoperfinApp.currentUser.savings.forEach(s => {
                     const month = new Date(s.date).getMonth();
                     savingsData[month] += s.amount;
                 });
 
-                (KoperfinApp.currentUser.loans || []).forEach(l => {
+                KoperfinApp.currentUser.loans.forEach(l => {
                     const month = new Date(l.startDate).getMonth();
                     loansData[month] += l.principal;
                 });
@@ -2164,8 +2055,8 @@
                             {
                                 label: 'Pinjaman',
                                 data: loansData,
-                                borderColor: 'rgb(139, 26, 26)',
-                                backgroundColor: 'rgba(139, 26, 26, 0.1)',
+                                borderColor: 'rgb(239, 68, 68)',
+                                backgroundColor: 'rgba(239, 68, 68, 0.1)',
                                 tension: 0.4,
                                 fill: true
                             }
@@ -2193,9 +2084,10 @@
                 });
             },
 
+            // Loan Management
             renderLoans: () => {
                 const container = document.getElementById('loans-list');
-                const loans = KoperfinApp.currentUser.loans || [];
+                const loans = KoperfinApp.currentUser.loans;
 
                 if (loans.length === 0) {
                     container.innerHTML = '<div class="card empty-state"><i class="fas fa-hand-holding-usd"></i><p>Belum ada pinjaman. Ajukan pinjaman pertama Anda!</p></div>';
@@ -2216,7 +2108,7 @@
                                 </div>
                                 <span class="badge ${isPaid ? 'badge-success' : 'badge-warning'}">
                                     ${isPaid ? 'Lunas' : 'Aktif'}
-                                    </span>
+                                </span>
                             </div>
                             <div class="metric-row">
                                 <span class="metric-label">Jumlah Pinjaman</span>
@@ -2259,7 +2151,7 @@
             },
 
             openPaymentModal: (loanId) => {
-                const loan = (KoperfinApp.currentUser.loans || []).find(l => l.id === loanId);
+                const loan = KoperfinApp.currentUser.loans.find(l => l.id === loanId);
                 if (!loan) return;
 
                 document.getElementById('payment-loan-id').value = loanId;
@@ -2267,7 +2159,7 @@
                 KoperfinApp.openModal('payment-modal');
             },
 
-            handleLoanSubmit: async () => {
+            handleLoanSubmit: () => {
                 const type = document.getElementById('loan-type').value;
                 const amount = parseFloat(document.getElementById('loan-amount').value);
                 const tenor = parseInt(document.getElementById('loan-tenor').value);
@@ -2310,10 +2202,8 @@
                     payments: []
                 };
 
-                KoperfinApp.currentUser.loans = KoperfinApp.currentUser.loans || [];
                 KoperfinApp.currentUser.loans.push(newLoan);
                 
-                KoperfinApp.currentUser.transactions = KoperfinApp.currentUser.transactions || [];
                 KoperfinApp.currentUser.transactions.push({
                     id: Date.now(),
                     type: 'loan_disbursement',
@@ -2322,25 +2212,15 @@
                     date: new Date().toISOString()
                 });
 
-                try {
-                    await updateDoc(doc(db, 'users', KoperfinApp.currentUser.uid), {
-                        loans: KoperfinApp.currentUser.loans,
-                        transactions: KoperfinApp.currentUser.transactions
-                    });
-
-                    KoperfinApp.closeModal('loan-modal');
-                    KoperfinApp.renderLoans();
-                    KoperfinApp.updateDashboard();
-                    alert('Pinjaman berhasil diajukan dan disetujui!');
-                    document.getElementById('loan-form').reset();
-                    document.getElementById('loan-interest').value = 6;
-                } catch (error) {
-                    console.error('Error saving loan:', error);
-                    alert('Gagal menyimpan pinjaman. Silakan coba lagi.');
-                }
+                KoperfinApp.closeModal('loan-modal');
+                KoperfinApp.renderLoans();
+                KoperfinApp.updateDashboard();
+                alert('Pinjaman berhasil diajukan dan disetujui!');
+                document.getElementById('loan-form').reset();
+                document.getElementById('loan-interest').value = 6;
             },
 
-            handlePaymentSubmit: async () => {
+            handlePaymentSubmit: () => {
                 const loanId = parseInt(document.getElementById('payment-loan-id').value);
                 const amount = parseFloat(document.getElementById('payment-amount').value);
                 const date = document.getElementById('payment-date').value;
@@ -2352,10 +2232,9 @@
                     return;
                 }
 
-                const loan = (KoperfinApp.currentUser.loans || []).find(l => l.id === loanId);
+                const loan = KoperfinApp.currentUser.loans.find(l => l.id === loanId);
                 if (!loan) return;
 
-                loan.payments = loan.payments || [];
                 loan.payments.push({
                     id: Date.now(),
                     amount,
@@ -2370,7 +2249,6 @@
                     loan.status = 'paid';
                 }
 
-                KoperfinApp.currentUser.transactions = KoperfinApp.currentUser.transactions || [];
                 KoperfinApp.currentUser.transactions.push({
                     id: Date.now(),
                     type: 'loan_payment',
@@ -2379,27 +2257,18 @@
                     date: date
                 });
 
-                try {
-                    await updateDoc(doc(db, 'users', KoperfinApp.currentUser.uid), {
-                        loans: KoperfinApp.currentUser.loans,
-                        transactions: KoperfinApp.currentUser.transactions
-                    });
-
-                    KoperfinApp.closeModal('payment-modal');
-                    KoperfinApp.renderLoans();
-                    KoperfinApp.updateDashboard();
-                    KoperfinApp.updateCreditScore();
-                    alert('Pembayaran berhasil dicatat!');
-                    document.getElementById('payment-form').reset();
-                } catch (error) {
-                    console.error('Error saving payment:', error);
-                    alert('Gagal menyimpan pembayaran. Silakan coba lagi.');
-                }
+                KoperfinApp.closeModal('payment-modal');
+                KoperfinApp.renderLoans();
+                KoperfinApp.updateDashboard();
+                KoperfinApp.updateCreditScore();
+                alert('Pembayaran berhasil dicatat!');
+                document.getElementById('payment-form').reset();
             },
 
+            // Savings Management
             renderSavings: () => {
                 const container = document.getElementById('savings-list');
-                const savings = KoperfinApp.currentUser.savings || [];
+                const savings = KoperfinApp.currentUser.savings;
 
                 if (savings.length === 0) {
                     container.innerHTML = '<div class="card empty-state"><i class="fas fa-piggy-bank"></i><p>Belum ada simpanan. Mulai menabung sekarang!</p></div>';
@@ -2439,7 +2308,7 @@
                 }).join('');
             },
 
-            handleSavingsSubmit: async () => {
+            handleSavingsSubmit: () => {
                 const type = document.getElementById('savings-type').value;
                 const amount = parseFloat(document.getElementById('savings-amount').value);
                 const date = document.getElementById('savings-date').value;
@@ -2450,7 +2319,6 @@
                     return;
                 }
 
-                KoperfinApp.currentUser.savings = KoperfinApp.currentUser.savings || [];
                 KoperfinApp.currentUser.savings.push({
                     id: Date.now(),
                     type,
@@ -2459,7 +2327,6 @@
                     note
                 });
 
-                KoperfinApp.currentUser.transactions = KoperfinApp.currentUser.transactions || [];
                 KoperfinApp.currentUser.transactions.push({
                     id: Date.now(),
                     type: 'savings_deposit',
@@ -2468,27 +2335,18 @@
                     date: date
                 });
 
-                try {
-                    await updateDoc(doc(db, 'users', KoperfinApp.currentUser.uid), {
-                        savings: KoperfinApp.currentUser.savings,
-                        transactions: KoperfinApp.currentUser.transactions
-                    });
-
-                    KoperfinApp.closeModal('savings-modal');
-                    KoperfinApp.renderSavings();
-                    KoperfinApp.updateDashboard();
-                    KoperfinApp.updateCreditScore();
-                    alert('Simpanan berhasil ditambahkan!');
-                    document.getElementById('savings-form').reset();
-                } catch (error) {
-                    console.error('Error saving savings:', error);
-                    alert('Gagal menyimpan simpanan. Silakan coba lagi.');
-                }
+                KoperfinApp.closeModal('savings-modal');
+                KoperfinApp.renderSavings();
+                KoperfinApp.updateDashboard();
+                KoperfinApp.updateCreditScore();
+                alert('Simpanan berhasil ditambahkan!');
+                document.getElementById('savings-form').reset();
             },
 
+            // Transactions
             renderTransactions: () => {
                 const container = document.getElementById('transactions-list');
-                const transactions = [...(KoperfinApp.currentUser.transactions || [])]
+                const transactions = [...KoperfinApp.currentUser.transactions]
                     .sort((a, b) => new Date(b.date) - new Date(a.date));
 
                 if (transactions.length === 0) {
@@ -2519,6 +2377,7 @@
                 }).join('');
             },
 
+            // Credit Score
             updateCreditScore: () => {
                 const score = KoperfinApp.calculateCreditScore(KoperfinApp.currentUser);
                 const rating = KoperfinApp.getCreditRating(score);
@@ -2528,33 +2387,21 @@
                 document.getElementById('credit-rating').className = `badge ${rating.class}`;
                 document.getElementById('credit-description').textContent = rating.description;
 
+                // Render factors
                 const factorsContainer = document.getElementById('score-factors');
-                const user = KoperfinApp.currentUser;
-                const loans = user.loans || [];
-                const savings = user.savings || [];
-                const transactions = user.transactions || [];
-
-                const paymentHistoryScore = Math.min((score - 300) / 5.5 * 35 / 100, 35);
-                const debtRatioScore = Math.min((score - 300) / 5.5 * 30 / 100, 30);
-                const savingsHistoryScore = Math.min((score - 300) / 5.5 * 20 / 100, 20);
-                const activityScore = Math.min((score - 300) / 5.5 * 15 / 100, 15);
-
                 const factors = [
-                    { name: 'Riwayat Pembayaran', weight: 35, score: paymentHistoryScore, icon: 'history' },
-                    { name: 'Rasio Hutang', weight: 30, score: debtRatioScore, icon: 'balance-scale' },
-                    { name: 'Riwayat Simpanan', weight: 20, score: savingsHistoryScore, icon: 'piggy-bank' },
-                    { name: 'Aktivitas Transaksi', weight: 15, score: activityScore, icon: 'chart-line' }
+                    { name: 'Riwayat Pembayaran', weight: 35, score: Math.min((score - 300) / 5.5 * 35 / 100, 35) },
+                    { name: 'Rasio Hutang', weight: 30, score: Math.min((score - 300) / 5.5 * 30 / 100, 30) },
+                    { name: 'Riwayat Simpanan', weight: 20, score: Math.min((score - 300) / 5.5 * 20 / 100, 20) },
+                    { name: 'Aktivitas Transaksi', weight: 15, score: Math.min((score - 300) / 5.5 * 15 / 100, 15) }
                 ];
 
                 factorsContainer.innerHTML = factors.map(f => {
                     const percentage = (f.score / f.weight) * 100;
                     return `
                         <div style="margin-bottom: 1.5rem;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                                    <i class="fas fa-${f.icon}" style="color: var(--primary-light);"></i>
-                                    <span style="color: var(--text-secondary); font-size: 0.9rem;">${f.name}</span>
-                                </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                <span style="color: var(--text-secondary); font-size: 0.9rem;">${f.name}</span>
                                 <span style="color: var(--text-primary); font-weight: 600;">${percentage.toFixed(0)}%</span>
                             </div>
                             <div style="height: 8px; background: rgba(148, 163, 184, 0.2); border-radius: 10px; overflow: hidden;">
@@ -2564,304 +2411,49 @@
                     `;
                 }).join('');
 
+                // Render recommendations
                 const recommendationsContainer = document.getElementById('score-recommendations');
                 let recommendations = [];
 
-                const totalDebt = loans.filter(l => l.status === 'active').reduce((sum, l) => sum + (l.totalPayment - l.totalPaid), 0);
-                const totalSavings = savings.reduce((sum, s) => sum + s.amount, 0);
-
                 if (score < 650) {
-                    recommendations.push('Tingkatkan frekuensi pembayaran cicilan tepat waktu untuk meningkatkan riwayat pembayaran Anda');
-                    recommendations.push('Tambah simpanan rutin setiap bulan minimal Rp 500.000');
+                    recommendations.push('Tingkatkan frekuensi pembayaran cicilan tepat waktu');
+                    recommendations.push('Tambah simpanan rutin setiap bulan');
                 }
-                
-                if (score >= 650 && score < 750) {
-                    recommendations.push('Pertahankan konsistensi pembayaran untuk mencapai score 750+');
+                if (KoperfinApp.currentUser.savings.length < 5) {
+                    recommendations.push('Tingkatkan frekuensi menabung ke koperasi');
                 }
-
-                if (savings.length < 5) {
-                    recommendations.push('Tingkatkan frekuensi menabung ke koperasi minimal 6 kali dalam 6 bulan terakhir');
+                if (KoperfinApp.currentUser.loans.filter(l => l.status === 'active').length > 3) {
+                    recommendations.push('Pertimbangkan untuk melunasi beberapa pinjaman');
                 }
-
-                if (totalDebt > 0 && totalSavings > 0) {
-                    const debtRatio = totalDebt / totalSavings;
-                    if (debtRatio > 0.5) {
-                        recommendations.push('Rasio hutang terhadap simpanan Anda tinggi. Pertimbangkan untuk melunasi sebagian pinjaman atau meningkatkan simpanan');
-                    }
-                }
-
-                if (loans.filter(l => l.status === 'active').length > 3) {
-                    recommendations.push('Anda memiliki lebih dari 3 pinjaman aktif. Pertimbangkan untuk fokus melunasi pinjaman dengan suku bunga tertinggi');
-                }
-
-                if (transactions.length < 10) {
-                    recommendations.push('Tingkatkan aktivitas transaksi Anda dengan rutin menabung dan membayar cicilan');
-                }
-
                 if (recommendations.length === 0) {
-                    recommendations.push('Selamat! Profil keuangan Anda sangat baik. Pertahankan kebiasaan ini');
-                    recommendations.push('Terus tingkatkan simpanan dan pertimbangkan membuat rencana keuangan jangka panjang');
-                    recommendations.push('Anda berpotensi mendapatkan pinjaman dengan limit lebih tinggi');
+                    recommendations.push('Pertahankan kebiasaan keuangan yang baik!');
+                    recommendations.push('Terus tingkatkan simpanan Anda');
                 }
 
                 recommendationsContainer.innerHTML = recommendations.map(r => `
-                    <div style="display: flex; gap: 0.75rem; padding: 0.75rem; background: rgba(139, 26, 26, 0.05); border-radius: 10px; margin-bottom: 0.75rem;">
-                        <i class="fas fa-check-circle" style="color: var(--success); margin-top: 0.25rem; flex-shrink: 0;"></i>
-                        <p style="color: var(--text-secondary); margin: 0; font-size: 0.9rem; line-height: 1.5;">${r}</p>
+                    <div style="display: flex; gap: 0.75rem; padding: 0.75rem; background: rgba(220, 38, 38, 0.05); border-radius: 10px; margin-bottom: 0.75rem;">
+                        <i class="fas fa-check-circle" style="color: var(--success); margin-top: 0.25rem;"></i>
+                        <p style="color: var(--text-secondary); margin: 0; font-size: 0.9rem;">${r}</p>
                     </div>
                 `).join('');
             },
 
-            renderFinancialPlans: () => {
-                const container = document.getElementById('financial-plans-list');
-                const plans = KoperfinApp.currentUser.financialPlans || [];
-
-                if (plans.length === 0) {
-                    container.innerHTML = '<div class="card empty-state"><i class="fas fa-calendar-check"></i><p>Belum ada rencana keuangan. Buat rencana pertama Anda!</p></div>';
-                    return;
-                }
-
-                container.innerHTML = plans.map(plan => {
-                    const progress = (plan.currentAmount / plan.targetAmount) * 100;
-                    const monthsRemaining = plan.duration - Math.floor((new Date() - new Date(plan.startDate)) / (30 * 24 * 60 * 60 * 1000));
-                    const isCompleted = plan.currentAmount >= plan.targetAmount;
-
-                    return `
-                        <div class="financial-plan-card">
-                            <div class="plan-header">
-                                <div>
-                                    <h3 style="color: var(--text-primary); margin-bottom: 0.5rem;">${plan.name}</h3>
-                                    <p style="color: var(--text-tertiary); font-size: 0.9rem;">
-                                        <i class="fas fa-bullseye"></i> ${KoperfinApp.getPlanGoalName(plan.goal)}
-                                    </p>
-                                </div>
-                                <span class="badge ${isCompleted ? 'badge-success' : 'badge-info'}">
-                                    ${isCompleted ? 'Tercapai' : 'Aktif'}
-                                </span>
-                            </div>
-                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1rem;">
-                                <div>
-                                    <p style="color: var(--text-tertiary); font-size: 0.85rem; margin-bottom: 0.25rem;">Target Dana</p>
-                                    <p style="color: var(--text-primary); font-weight: 700; font-size: 1.1rem;">${KoperfinApp.formatCurrency(plan.targetAmount)}</p>
-                                </div>
-                                <div>
-                                    <p style="color: var(--text-tertiary); font-size: 0.85rem; margin-bottom: 0.25rem;">Terkumpul</p>
-                                    <p style="color: var(--success); font-weight: 700; font-size: 1.1rem;">${KoperfinApp.formatCurrency(plan.currentAmount)}</p>
-                                </div>
-                                <div>
-                                    <p style="color: var(--text-tertiary); font-size: 0.85rem; margin-bottom: 0.25rem;">Durasi</p>
-                                    <p style="color: var(--text-primary); font-weight: 600;">${plan.duration} bulan</p>
-                                </div>
-                                <div>
-                                    <p style="color: var(--text-tertiary); font-size: 0.85rem; margin-bottom: 0.25rem;">Sisa Waktu</p>
-                                    <p style="color: var(--warning); font-weight: 600;">${Math.max(0, monthsRemaining)} bulan</p>
-                                </div>
-                            </div>
-                            ${plan.description ? `
-                                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1rem; padding: 0.75rem; background: rgba(15, 23, 42, 0.3); border-radius: 8px;">
-                                    ${plan.description}
-                                </p>
-                            ` : ''}
-                            <div class="plan-progress">
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                    <span style="color: var(--text-secondary); font-size: 0.85rem;">Progress</span>
-                                    <span style="color: var(--primary-light); font-weight: 700;">${progress.toFixed(1)}%</span>
-                                </div>
-                                <div style="height: 10px; background: rgba(148, 163, 184, 0.2); border-radius: 10px; overflow: hidden;">
-                                    <div style="height: 100%; width: ${Math.min(progress, 100)}%; background: linear-gradient(90deg, var(--primary-light), var(--success)); border-radius: 10px; transition: width 1s ease;"></div>
-                                </div>
-                            </div>
-                            ${!isCompleted ? `
-                                <button class="btn btn-primary btn-block" style="margin-top: 1rem;" onclick="KoperfinApp.openContributeModal(${plan.id})">
-                                    <i class="fas fa-plus-circle"></i> Setor ke Rencana
-                                </button>
-                            ` : `
-                                <div class="alert alert-success" style="margin-top: 1rem; margin-bottom: 0;">
-                                    <i class="fas fa-trophy"></i>
-                                    <span>Selamat! Rencana keuangan Anda telah tercapai!</span>
-                                </div>
-                            `}
-                        </div>
-                    `;
-                }).join('');
-            },
-
-            openContributeModal: (planId) => {
-                const plan = (KoperfinApp.currentUser.financialPlans || []).find(p => p.id === planId);
-                if (!plan) return;
-
-                const remaining = plan.targetAmount - plan.currentAmount;
-                const modalHtml = `
-                    <div class="modal active" id="contribute-modal-temp">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h3><i class="fas fa-plus-circle"></i> Setor ke Rencana: ${plan.name}</h3>
-                                <button class="btn-close" onclick="document.getElementById('contribute-modal-temp').remove()">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="info-box">
-                                    <p>Sisa target: <strong>${KoperfinApp.formatCurrency(remaining)}</strong></p>
-                                </div>
-                                <form id="contribute-form">
-                                    <div class="form-group">
-                                        <label>Jumlah Setoran (Rp)</label>
-                                        <input type="number" id="contribute-amount" placeholder="0" required min="10000" step="10000">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Tanggal</label>
-                                        <input type="date" id="contribute-date" value="${new Date().toISOString().split('T')[0]}" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Catatan (Opsional)</label>
-                                        <textarea id="contribute-note" placeholder="Tambahkan catatan..."></textarea>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-secondary" onclick="document.getElementById('contribute-modal-temp').remove()">Batal</button>
-                                <button class="btn btn-primary" onclick="KoperfinApp.handleContributeSubmit(${planId})">
-                                    <i class="fas fa-save"></i> Setor
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-
-                document.body.insertAdjacentHTML('beforeend', modalHtml);
-            },
-
-            handleContributeSubmit: async (planId) => {
-                const amount = parseFloat(document.getElementById('contribute-amount').value);
-                const date = document.getElementById('contribute-date').value;
-                const note = document.getElementById('contribute-note').value.trim();
-
-                if (isNaN(amount) || amount <= 0 || !date) {
-                    alert('Harap isi semua field yang diperlukan.');
-                    return;
-                }
-
-                const plan = (KoperfinApp.currentUser.financialPlans || []).find(p => p.id === planId);
-                if (!plan) return;
-
-                plan.currentAmount += amount;
-                plan.contributions = plan.contributions || [];
-                plan.contributions.push({
-                    id: Date.now(),
-                    amount,
-                    date,
-                    note
-                });
-
-                if (plan.currentAmount >= plan.targetAmount) {
-                    plan.status = 'completed';
-                }
-
-                KoperfinApp.currentUser.transactions = KoperfinApp.currentUser.transactions || [];
-                KoperfinApp.currentUser.transactions.push({
-                    id: Date.now(),
-                    type: 'plan_contribution',
-                    amount: amount,
-                    description: `Setoran rencana: ${plan.name}`,
-                    date: date
-                });
-
-                try {
-                    await updateDoc(doc(db, 'users', KoperfinApp.currentUser.uid), {
-                        financialPlans: KoperfinApp.currentUser.financialPlans,
-                        transactions: KoperfinApp.currentUser.transactions
-                    });
-
-                    document.getElementById('contribute-modal-temp').remove();
-                    KoperfinApp.renderFinancialPlans();
-                    KoperfinApp.updateDashboard();
-                    alert('Setoran berhasil dicatat!');
-                } catch (error) {
-                    console.error('Error saving contribution:', error);
-                    alert('Gagal menyimpan setoran. Silakan coba lagi.');
-                }
-            },
-
-            handlePlanSubmit: async () => {
-                const name = document.getElementById('plan-name').value.trim();
-                const goal = document.getElementById('plan-goal').value;
-                const targetAmount = parseFloat(document.getElementById('plan-target').value);
-                const duration = parseInt(document.getElementById('plan-duration').value);
-                const initialAmount = parseFloat(document.getElementById('plan-initial').value) || 0;
-                const description = document.getElementById('plan-description').value.trim();
-
-                if (!name || !goal || isNaN(targetAmount) || targetAmount <= 0 || isNaN(duration) || duration <= 0) {
-                    alert('Harap isi semua field yang diperlukan.');
-                    return;
-                }
-
-                const newPlan = {
-                    id: Date.now(),
-                    name,
-                    goal,
-                    targetAmount,
-                    duration,
-                    currentAmount: initialAmount,
-                    description,
-                    status: 'active',
-                    startDate: new Date().toISOString(),
-                    contributions: initialAmount > 0 ? [{
-                        id: Date.now(),
-                        amount: initialAmount,
-                        date: new Date().toISOString().split('T')[0],
-                        note: 'Setoran awal'
-                    }] : []
-                };
-
-                KoperfinApp.currentUser.financialPlans = KoperfinApp.currentUser.financialPlans || [];
-                KoperfinApp.currentUser.financialPlans.push(newPlan);
-
-                if (initialAmount > 0) {
-                    KoperfinApp.currentUser.transactions = KoperfinApp.currentUser.transactions || [];
-                    KoperfinApp.currentUser.transactions.push({
-                        id: Date.now(),
-                        type: 'plan_contribution',
-                        amount: initialAmount,
-                        description: `Setoran awal rencana: ${name}`,
-                        date: new Date().toISOString()
-                    });
-                }
-
-                try {
-                    await updateDoc(doc(db, 'users', KoperfinApp.currentUser.uid), {
-                        financialPlans: KoperfinApp.currentUser.financialPlans,
-                        transactions: KoperfinApp.currentUser.transactions
-                    });
-
-                    KoperfinApp.closeModal('plan-modal');
-                    KoperfinApp.renderFinancialPlans();
-                    KoperfinApp.updateDashboard();
-                    alert('Rencana keuangan berhasil dibuat!');
-                    document.getElementById('plan-form').reset();
-                } catch (error) {
-                    console.error('Error saving plan:', error);
-                    alert('Gagal menyimpan rencana. Silakan coba lagi.');
-                }
-            },
-
+            // Reports
             updateReports: () => {
                 const now = new Date();
                 const today = now.toDateString();
                 const weekStart = new Date(now.setDate(now.getDate() - now.getDay()));
                 const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
 
-                const transactions = KoperfinApp.currentUser.transactions || [];
-
-                const todayCount = transactions.filter(t => 
+                const todayCount = KoperfinApp.currentUser.transactions.filter(t => 
                     new Date(t.date).toDateString() === today
                 ).length;
 
-                const weekCount = transactions.filter(t => 
+                const weekCount = KoperfinApp.currentUser.transactions.filter(t => 
                     new Date(t.date) >= weekStart
                 ).length;
 
-                const monthCount = transactions.filter(t => 
+                const monthCount = KoperfinApp.currentUser.transactions.filter(t => 
                     new Date(t.date) >= monthStart
                 ).length;
 
@@ -2869,14 +2461,21 @@
                 document.getElementById('week-transactions').textContent = weekCount;
                 document.getElementById('month-transactions').textContent = monthCount;
 
+                // Update reports chart
                 const ctx = document.getElementById('reports-chart');
-                if (!ctx || typeof Chart === 'undefined') return;
+                if (!ctx) return;
+                
+                // Check if Chart is available
+                if (typeof Chart === 'undefined') {
+                    console.warn('Chart.js not loaded yet');
+                    return;
+                }
 
                 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
                 const incomeData = new Array(12).fill(0);
                 const expenseData = new Array(12).fill(0);
 
-                transactions.forEach(t => {
+                KoperfinApp.currentUser.transactions.forEach(t => {
                     const month = new Date(t.date).getMonth();
                     if (t.type.includes('deposit') || t.type.includes('disbursement')) {
                         incomeData[month] += t.amount;
@@ -2904,8 +2503,8 @@
                             {
                                 label: 'Pengeluaran',
                                 data: expenseData,
-                                backgroundColor: 'rgba(139, 26, 26, 0.8)',
-                                borderColor: 'rgb(139, 26, 26)',
+                                backgroundColor: 'rgba(239, 68, 68, 0.8)',
+                                borderColor: 'rgb(239, 68, 68)',
                                 borderWidth: 1
                             }
                         ]
@@ -2932,58 +2531,91 @@
                 });
             },
 
+            // Settings
             loadSettings: () => {
-                document.getElementById('setting-coop-id').value = KoperfinApp.currentUser.coopId || '';
-                document.getElementById('setting-coop-name').value = KoperfinApp.currentUser.coopName || '';
-                document.getElementById('setting-name').value = KoperfinApp.currentUser.settings?.fullName || '';
+                document.getElementById('setting-coop-id').value = KoperfinApp.currentUser.coopId;
+                document.getElementById('setting-coop-name').value = KoperfinApp.currentUser.coopName;
+                document.getElementById('setting-name').value = KoperfinApp.currentUser.settings.fullName || '';
                 document.getElementById('setting-email').value = KoperfinApp.currentUser.email || '';
-                document.getElementById('setting-phone').value = KoperfinApp.currentUser.settings?.phone || '';
+                document.getElementById('setting-phone').value = KoperfinApp.currentUser.settings.phone || '';
             },
 
-            handleSettingsSubmit: async (e) => {
+            handleSettingsSubmit: (e) => {
                 e.preventDefault();
                 
-                KoperfinApp.currentUser.settings = KoperfinApp.currentUser.settings || {};
                 KoperfinApp.currentUser.settings.fullName = document.getElementById('setting-name').value;
                 KoperfinApp.currentUser.email = document.getElementById('setting-email').value;
                 KoperfinApp.currentUser.settings.phone = document.getElementById('setting-phone').value;
 
-                try {
-                    await updateDoc(doc(db, 'users', KoperfinApp.currentUser.uid), {
-                        email: KoperfinApp.currentUser.email,
-                        settings: KoperfinApp.currentUser.settings
-                    });
-
-                    alert('Pengaturan berhasil disimpan!');
-                } catch (error) {
-                    console.error('Error saving settings:', error);
-                    alert('Gagal menyimpan pengaturan. Silakan coba lagi.');
-                }
+                alert('Pengaturan berhasil disimpan!');
             }
         };
 
-        window.KoperfinApp = KoperfinApp;
+        // Global functions for onclick handlers
         window.openModal = KoperfinApp.openModal;
         window.closeModal = KoperfinApp.closeModal;
 
+        // Initialize app when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
-            onAuthStateChanged(auth, async (user) => {
-                if (user) {
-                    try {
-                        const userDoc = await getDoc(doc(db, 'users', user.uid));
-                        if (userDoc.exists()) {
-                            KoperfinApp.currentUser = { uid: user.uid, ...userDoc.data() };
-                            KoperfinApp.initDashboard();
-                            KoperfinApp.showPage(document.getElementById('main-dashboard'));
-                        }
-                    } catch (error) {
-                        console.error('Error loading user data:', error);
+            
+            // CREATE DEMO USER FIRST - VERY IMPORTANT!
+            console.log('🔧 Creating demo user...');
+            const demoUser = {
+                username: 'demo',
+                email: 'demo@koperfin.com',
+                password: '1849883321', // Pre-calculated hash for 'demo123'
+                coopId: 'KOOP-001',
+                coopName: 'Koperasi Merah Putih Demo',
+                loans: [
+                    {
+                        id: 1,
+                        type: 'regular',
+                        principal: 10000000,
+                        tenor: 12,
+                        interest: 6,
+                        purpose: 'Modal usaha warung',
+                        collateral: 'BPKB Motor',
+                        monthlyInstallment: 860664,
+                        totalPayment: 10327968,
+                        totalPaid: 2581992,
+                        status: 'active',
+                        startDate: '2025-01-15',
+                        approvedDate: '2025-01-15',
+                        payments: [
+                            { id: 1, amount: 860664, date: '2025-02-15', method: 'transfer', note: '' },
+                            { id: 2, amount: 860664, date: '2025-03-15', method: 'transfer', note: '' },
+                            { id: 3, amount: 860664, date: '2025-04-15', method: 'cash', note: '' }
+                        ]
                     }
-                } else {
-                    KoperfinApp.showPage(document.getElementById('auth-page'));
-                }
-            });
-
+                ],
+                savings: [
+                    { id: 1, type: 'mandatory', amount: 1000000, date: '2025-01-01', note: 'Simpanan pokok awal' },
+                    { id: 2, type: 'principal', amount: 500000, date: '2025-01-15', note: 'Simpanan wajib bulan Januari' },
+                    { id: 3, type: 'principal', amount: 500000, date: '2025-02-15', note: 'Simpanan wajib bulan Februari' },
+                    { id: 4, type: 'voluntary', amount: 1500000, date: '2025-03-01', note: 'Simpanan sukarela' },
+                    { id: 5, type: 'principal', amount: 500000, date: '2025-03-15', note: 'Simpanan wajib bulan Maret' }
+                ],
+                transactions: [
+                    { id: 1, type: 'savings_deposit', amount: 1000000, description: 'Setoran Simpanan Pokok', date: '2025-01-01' },
+                    { id: 2, type: 'savings_deposit', amount: 500000, description: 'Setoran Simpanan Wajib', date: '2025-01-15' },
+                    { id: 3, type: 'loan_disbursement', amount: 10000000, description: 'Pencairan pinjaman Pinjaman Reguler', date: '2025-01-15' },
+                    { id: 4, type: 'savings_deposit', amount: 500000, description: 'Setoran Simpanan Wajib', date: '2025-02-15' },
+                    { id: 5, type: 'loan_payment', amount: 860664, description: 'Pembayaran cicilan Pinjaman Reguler', date: '2025-02-15' },
+                    { id: 6, type: 'savings_deposit', amount: 1500000, description: 'Setoran Simpanan Sukarela', date: '2025-03-01' },
+                    { id: 7, type: 'savings_deposit', amount: 500000, description: 'Setoran Simpanan Wajib', date: '2025-03-15' },
+                    { id: 8, type: 'loan_payment', amount: 860664, description: 'Pembayaran cicilan Pinjaman Reguler', date: '2025-03-15' },
+                    { id: 9, type: 'loan_payment', amount: 860664, description: 'Pembayaran cicilan Pinjaman Reguler', date: '2025-04-15' }
+                ],
+                settings: { fullName: 'User Demo', phone: '081234567890' },
+                createdAt: '2025-01-01T00:00:00.000Z'
+            };
+            
+            KoperfinApp.users['demo'] = demoUser;
+            console.log('✅ Demo user created successfully');
+            console.log('📝 Demo password hash:', demoUser.password);
+            console.log('🧪 Test hash for "demo123":', KoperfinApp.simpleHash('demo123'));
+            
+            // Auth tabs
             document.getElementById('login-tab').addEventListener('click', () => {
                 document.getElementById('login-tab').classList.add('active');
                 document.getElementById('register-tab').classList.remove('active');
@@ -2998,10 +2630,12 @@
                 document.getElementById('login-form').classList.add('hidden');
             });
 
+            // Auth forms
             document.getElementById('login-form').addEventListener('submit', KoperfinApp.handleLogin);
             document.getElementById('register-form').addEventListener('submit', KoperfinApp.handleRegister);
             document.getElementById('logout-btn').addEventListener('click', KoperfinApp.handleLogout);
 
+            // Navigation
             document.querySelectorAll('.nav-item[data-page]').forEach(nav => {
                 nav.addEventListener('click', (e) => {
                     const page = e.currentTarget.dataset.page;
@@ -3009,6 +2643,7 @@
                 });
             });
 
+            // Balance toggle
             document.getElementById('toggle-balance').addEventListener('click', () => {
                 KoperfinApp.balanceVisible = !KoperfinApp.balanceVisible;
                 const icon = document.querySelector('#toggle-balance i');
@@ -3016,31 +2651,35 @@
                 KoperfinApp.updateDashboard();
             });
 
-            const loanAmountInput = document.getElementById('loan-amount');
-            const loanTenorInput = document.getElementById('loan-tenor');
-            
-            const updateLoanEstimate = () => {
-                const amount = parseFloat(loanAmountInput.value) || 0;
-                const tenor = parseInt(loanTenorInput.value) || 12;
+            // Loan form
+            document.getElementById('loan-amount').addEventListener('input', () => {
+                const amount = parseFloat(document.getElementById('loan-amount').value) || 0;
+                const tenor = parseInt(document.getElementById('loan-tenor').value) || 12;
                 const interest = 6;
                 
                 if (amount > 3000000000) {
-                    loanAmountInput.value = 3000000000;
+                    document.getElementById('loan-amount').value = 3000000000;
                 }
                 
                 if (amount > 0 && tenor > 0) {
                     const installment = KoperfinApp.calculateMonthlyInstallment(amount, interest, tenor);
                     document.getElementById('estimated-installment').textContent = KoperfinApp.formatCurrency(installment);
                 }
-            };
+            });
 
-            loanAmountInput.addEventListener('input', updateLoanEstimate);
-            loanTenorInput.addEventListener('input', () => {
-                const tenor = parseInt(loanTenorInput.value);
+            document.getElementById('loan-tenor').addEventListener('input', () => {
+                const amount = parseFloat(document.getElementById('loan-amount').value) || 0;
+                const tenor = parseInt(document.getElementById('loan-tenor').value) || 12;
+                const interest = 6;
+                
                 if (tenor > 72) {
-                    loanTenorInput.value = 72;
+                    document.getElementById('loan-tenor').value = 72;
                 }
-                updateLoanEstimate();
+                
+                if (amount > 0 && tenor > 0) {
+                    const installment = KoperfinApp.calculateMonthlyInstallment(amount, interest, tenor);
+                    document.getElementById('estimated-installment').textContent = KoperfinApp.formatCurrency(installment);
+                }
             });
 
             document.getElementById('submit-loan').addEventListener('click', (e) => {
@@ -3048,53 +2687,27 @@
                 KoperfinApp.handleLoanSubmit();
             });
 
+            // Savings form
             document.getElementById('submit-savings').addEventListener('click', (e) => {
                 e.preventDefault();
                 KoperfinApp.handleSavingsSubmit();
             });
 
+            // Payment form
             document.getElementById('submit-payment').addEventListener('click', (e) => {
                 e.preventDefault();
                 KoperfinApp.handlePaymentSubmit();
             });
 
-            const planTargetInput = document.getElementById('plan-target');
-            const planDurationInput = document.getElementById('plan-duration');
-            const planInitialInput = document.getElementById('plan-initial');
-
-            const updatePlanRecommendation = () => {
-                const target = parseFloat(planTargetInput.value) || 0;
-                const duration = parseInt(planDurationInput.value) || 12;
-                const initial = parseFloat(planInitialInput.value) || 0;
-
-                if (target > 0 && duration > 0) {
-                    const remaining = target - initial;
-                    const monthlyRecommendation = remaining / duration;
-                    document.getElementById('recommended-monthly').textContent = KoperfinApp.formatCurrency(Math.max(0, monthlyRecommendation));
-                }
-            };
-
-            planTargetInput.addEventListener('input', updatePlanRecommendation);
-            planDurationInput.addEventListener('input', () => {
-                const duration = parseInt(planDurationInput.value);
-                if (duration > 360) {
-                    planDurationInput.value = 360;
-                }
-                updatePlanRecommendation();
-            });
-            planInitialInput.addEventListener('input', updatePlanRecommendation);
-
-            document.getElementById('submit-plan').addEventListener('click', (e) => {
-                e.preventDefault();
-                KoperfinApp.handlePlanSubmit();
-            });
-
+            // Settings form
             document.getElementById('settings-form').addEventListener('submit', KoperfinApp.handleSettingsSubmit);
 
+            // Set default date for modals
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('savings-date').value = today;
             document.getElementById('payment-date').value = today;
 
+            // Close modal on outside click
             document.querySelectorAll('.modal').forEach(modal => {
                 modal.addEventListener('click', (e) => {
                     if (e.target === modal) {
@@ -3103,10 +2716,10 @@
                 });
             });
 
-            console.log('%c🏦 KOPERFIN SMART Ready!', 'color: #8B1A1A; font-size: 16px; font-weight: bold;');
-            console.log('%c✅ Firebase Integrated', 'color: #10b981; font-size: 14px; font-weight: bold;');
-            console.log('%c🤖 AI Credit Scoring Active', 'color: #06b6d4; font-size: 14px; font-weight: bold;');
-            console.log('%c📊 Chart.js Status:', typeof Chart !== 'undefined' ? '✅ Loaded' : '⌛ Loading', 'color: #f59e0b; font-size: 12px;');
+            console.log('%c🏦 KOPERFIN SMART Ready!', 'color: #dc2626; font-size: 16px; font-weight: bold;');
+            console.log('%c✅ Demo Account - Username: demo | Password: demo123', 'color: #10b981; font-size: 14px; font-weight: bold;');
+            console.log('%c📊 Chart.js Status:', typeof Chart !== 'undefined' ? '✅ Loaded' : '❌ Not Loaded', 'color: #06b6d4; font-size: 12px;');
+            console.log('%c👥 Total Users:', Object.keys(KoperfinApp.users).length, 'color: #f59e0b; font-size: 12px;');
         });
     </script>
 </body>
